@@ -1,0 +1,39 @@
+{
+  "name": "ci-cd-nodejs",
+  "version": "1.0.0",
+  "description": "A sample node.js application that uses github actions for CI and CD",
+  "main": "server.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest --forceExit --runInBand --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winhcit298/ci-cd-nodejs.git"
+  },
+  "keywords": [
+    "node.js",
+    "github",
+    "github",
+    "actions",
+    "CI",
+    "CD"
+  ],
+  "author": "duynn (winhcit298@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/winhcit298/ci-cd-nodejs/issues"
+  },
+  "homepage": "https://github.com/winhcit298/ci-cd-nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-errors": "^1.7.3",
+    "jest": "^24.9.0",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}

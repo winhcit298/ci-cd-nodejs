@@ -1,0 +1,33 @@
+on: push
+name: npm build, lint, test and publish
+jobs:
+  build-and-publish:
+    name: build and publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: npm install
+        uses: actions/setup-node@v2
+        with:
+          args: install
+      - name: npm test
+        uses: actions/setup-node@v2
+        with:
+          args: run test
+      - name: npm lint
+        uses: actions/setup-node@v2
+        with:
+          args: run lint
+      - name: Login to docker hub
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      - name: Build :latest
+        if: success()
+        run: docker build -t winhcit298/ci-cd-nodejs:latest .
+      - name: Push to docker hub :latest
+        if: success()
+        uses: actions-hub/docker@master
+        with:
+          args: push winhcit298/ci-cd-nodejs:latest
