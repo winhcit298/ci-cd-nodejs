@@ -7,7 +7,7 @@ const createError = require('http-errors');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/', (req, res) => res.send('Hello World thay YY!'));
+app.use('/', (req, res) => res.send('Hello World Thay Y 2!'));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
